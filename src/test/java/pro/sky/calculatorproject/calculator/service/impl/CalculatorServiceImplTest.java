@@ -5,74 +5,43 @@ import org.junit.jupiter.api.Test;
 import pro.sky.calculatorproject.calculator.exceptions.DivideByZeroException;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static pro.sky.calculatorproject.calculator.constants.CalculatorServiceImplTestConstants.*;
 
 class CalculatorServiceImplTest {
-    private double num1;
-    private double num2;
-
-    @BeforeEach
-    public void setUp() {
-        num1 = 10;
-        num2 = 2;
-    }
+    CalculatorServiceImpl out = new CalculatorServiceImpl();
 
     @Test
     public void getSum() {
-        double actual = 0;
-
-        CalculatorServiceImpl calculatorService = new CalculatorServiceImpl();
-        actual = calculatorService.getSum(num1, num2);
-
-        double expected = num1 + num2;
-
+        double actual = out.getSum(NUM_PLUS_1, NUM_PLUS_2);
+        double expected = NUM_PLUS_1 + NUM_PLUS_2;
         assertEquals(expected, actual);
     }
 
     @Test
     public void getSubtraction() {
-        double actual = 0;
-
-        CalculatorServiceImpl calculatorService = new CalculatorServiceImpl();
-        actual = calculatorService.getSubtraction(num1, num2);
-
-        double expected = num1 - num2;
-
+        double actual = out.getSubtraction(NUM_MINUS_1, NUM_MINUS_2);
+        double expected = NUM_MINUS_1 - NUM_MINUS_2;
         assertEquals(expected, actual);
     }
 
     @Test
     public void getMultiply() {
-        double actual = 0;
-
-        CalculatorServiceImpl calculatorService = new CalculatorServiceImpl();
-        actual = calculatorService.getMultiply(num1, num2);
-
-        double expected = num1 * num2;
-
+        double actual = out.getMultiply(NUM_MULTIPLY_1, NUM_MULTIPLY_2);
+        double expected = NUM_MULTIPLY_1 * NUM_MULTIPLY_2;
         assertEquals(expected, actual);
     }
 
     @Test
     public void getDivision() {
-        double actual = 0;
-
-        CalculatorServiceImpl calculatorService = new CalculatorServiceImpl();
-        actual = calculatorService.getDivision(num1, num2);
-
-        double expected = num1 / num2;
-
+        double actual = out.getDivision(NUM_DIVIDE_1, NUM_DIVIDE_2);
+        double expected = NUM_DIVIDE_1 / NUM_DIVIDE_2;
         assertEquals(expected, actual);
     }
 
-//    @Test
-//    public void getDivisionByZero() {
-//        double actual = 0;
-//
-//        CalculatorServiceImpl calculatorService = new CalculatorServiceImpl();
-//        actual = calculatorService.getDivision(num1, num2);
-//
-//        double expected = num1 / num2;
-//
-//        assertThrows(DivideByZeroException.class, );
-//    }
+    @Test
+    public void getDivisionByZero() {
+        CalculatorServiceImpl out = new CalculatorServiceImpl();
+        assertThrows(DivideByZeroException.class, () -> out.getDivision(NUM_DIVIDE_1, NUM_NULL));
+    }
+
 }

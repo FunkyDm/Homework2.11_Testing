@@ -7,11 +7,6 @@ import pro.sky.calculatorproject.calculator.service.CalculatorService;
 @Service
 public class CalculatorServiceImpl implements CalculatorService {
     @Override
-    public String getGreeting() {
-        return "";
-    }
-
-    @Override
     public double getSum(double num1, double num2) {
         return num1 + num2;
     }
