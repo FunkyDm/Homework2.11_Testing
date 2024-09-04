@@ -14,22 +14,22 @@ class CalculatorServiceImplParamsTest {
 
     @ParameterizedTest
     @MethodSource("provideParamsForSumTests")
-    void getSum(double num1, double num2, double expected) {
-        double result = out.getSum(num1, num2);
+    void getSum(Integer num1, Integer num2, Integer expected) {
+        Integer result = out.getSum(num1, num2);
         assertEquals(expected, result);
     }
 
     @ParameterizedTest
     @MethodSource("provideParamsForSubstractionTests")
-    void getSubtraction(double num1, double num2, double expected) {
-        double result = out.getSubtraction(num1, num2);
+    void getSubtraction(Integer num1, Integer num2, Integer expected) {
+        Integer result = out.getSubtraction(num1, num2);
         assertEquals(expected, result);
     }
 
     @ParameterizedTest
     @MethodSource("provideParamsForMultiplyTests")
-    void getMultiply(double num1, double num2, double expected) {
-        double result = out.getMultiply(num1, num2);
+    void getMultiply(Integer num1, Integer num2, Integer expected) {
+        Integer result = out.getMultiply(num1, num2);
         assertEquals(expected, result);
     }
 
@@ -42,19 +42,19 @@ class CalculatorServiceImplParamsTest {
 
     public static Stream<Arguments> provideParamsForSumTests() {
         return Stream.of(
-                Arguments.of(3.0, 2.5, 5.5)
+                Arguments.of(3, 2, 5)
         );
     }
 
     public static Stream<Arguments> provideParamsForSubstractionTests() {
         return Stream.of(
-                Arguments.of(5.0, 2.0, 3.0)
+                Arguments.of(5, 2, 3)
         );
     }
 
     public static Stream<Arguments> provideParamsForMultiplyTests() {
         return Stream.of(
-                Arguments.of(5.0, 2.0, 10.0)
+                Arguments.of(5, 2, 10)
         );
     }
 
